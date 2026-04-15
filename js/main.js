@@ -84,7 +84,7 @@ checkoutPopup.innerHTML = `
                     <p class="price-summary" id="totalAmount"></p>
     
                     <div class="btn-group">
-                        <a href="../Card/Card.html">
+                        <a href="Card/Card.html">
                             <button type="button" class="buy-button">Proceed to Payment</button>
                         </a>
                         <button type="button" class="cancel-button  cancel-btn" data-popup="checkout">Cancel</button>
