@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+:root {
+    --bg-primary: #121212;   
+    --bg-secondary: #1a1a1a; 
+    --gold-primary: #d4af37;
+    --gold-gradient: linear-gradient(135deg, #bd9354 0%, #e1c16e 50%, #bd9354 100%);
+    --text-main: #f4f4f4;  
+    --text-muted: #888888;   
+    --accent-gold: #c5a028;
+}
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-track{
+    background-color: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb{
+    background: var(--gold-gradient);
+}
+
+body{
+    font-family: "PT Serif", sans-serif;
+    background-color: var(--bg-primary);
+}
+/* Start navbar styles */
+
+/* End navbar styles */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 6px;
+    font-weight: normal;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+    letter-spacing: 5px;
+}
+.products{
+    margin-top: 50px;
+
+}
+.products .buttons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.btn{
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--gold-primary);
+    color: var(--accent-gold);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    text-transform: uppercase;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.active{
+    color: black;
+    background-color: var(--gold-primary);
+}

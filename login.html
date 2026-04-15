@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add google font here  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="Icon" href="design/logo.png">
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+:root {
+    --bg-primary: #121212;   
+    --bg-secondary: #1a1a1a; 
+    --gold-primary: #d4af37;
+    --gold-gradient: linear-gradient(135deg, #bd9354 0%, #e1c16e 50%, #bd9354 100%);
+    --text-main: #f4f4f4;  
+    --text-muted: #888888;   
+    --accent-gold: #c5a028;
+}
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-track{
+    background-color: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb{
+    background: var(--gold-gradient);
+}
+
+body {
+    font-family: 'PT Serif', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg , var(--bg-primary), var(--bg-secondary) );
+}
+
+
+
+
+.form{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 600px;
+    max-height: 900px;
+    width: 100%;
+    background: transparent ;
+    backdrop-filter: blur(40px) ;
+    box-shadow: 0px 0px 30px -5px var(--accent-gold);
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 60px 40px;
+
+}
+
+.form header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form header h1{
+    font-size: 37px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--text-muted);
+            
+}
+.form header img{
+    width: 120px;
+}
+
+.form .input-box{
+    position: relative;
+    width: 100%;
+    height: 50%;
+    margin: 20px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    resize: none;
+    position: relative;
+    background: var(--bg-secondary);
+    border:  2px solid var(--medium-gray);
+    border-radius: 35px;
+    font-size: 16px;
+    color: var(--text-main);
+    padding: 20px 45px 20px 20px;
+    margin: 10px 0;
+    transition: all 0.3s;
+}
+
+.input-box input::placeholder{
+    color: var(--text-main);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.input-box input:focus{
+    outline: none;
+    border: 1px gold solid ;
+}
+
+
+
+.btn-log{
+    width: 100%;
+    height: 45px;
+    background: var(--gold-gradient);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--bg-secondary);
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+    </style>
+    <title>Login</title>
+    </style>
+</head>
+<body>
+    <!-- Start Cart  -->
+    <div class="cart" id="cart">
+    </div>
+    <!-- End Cart  -->
+        <!-- start checkout popup  -->
+    <div class="popup" id="checkout">
+    </div>
+    <!-- end checkout popup  -->
+    <!-- Start nav bar section  -->
+    <nav class="nav-bar" id="navBar">
+    </nav>
+    <!-- End nav bar section  -->
+
+        <div class="form" action="index.html">
+        <form  action="index.html">
+            <header>
+                <img src="design/logo.png" alt="" class="image">
+                <h1>Login</h1>
+            </header>
+            <div class="input-box">
+                <input type="text" name="name" placeholder="User name" autofocus required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+                <button type="submit" class="btn-log">Register</button>
+        </form>
+        </div> 
+
+    <script>
+        // Add animation on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const formContent = document.querySelector('.form');
+            formContent.style.opacity = '0';
+            
+            // Trigger animation after a short delay
+            setTimeout(() => {
+                formContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                formContent.style.opacity = '1';
+            }, 100);
+            
+        });
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/logic.js"></script>
+</body>
+</html>
