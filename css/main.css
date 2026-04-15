@@ -87,6 +87,9 @@ button{
     text-transform: uppercase;
     
 }
+.items_of_cart::-webkit-scrollbar{
+    width: 0px;
+}
 .cart.active{
     right: 0;
 }
