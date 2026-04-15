@@ -13,9 +13,6 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-.card-container {
-    perspective: 1000px; 
-}
 
 .card {
     width: 400px;
