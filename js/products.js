@@ -1,16 +1,59 @@
-
     // start season logic 
     let seasonBtn = document.querySelectorAll(".buttons .btn")
-
+    const summerSection = document.getElementById("summerSection");
+    const winterSection = document.getElementById("winterSection");
 
     seasonBtn.forEach(function(btn){
-        btn.addEventListener("click", function(){
-            seasonBtn.forEach(function(btn){
-                btn.classList.remove("active")
+        btn.addEventListener("click", function(e){
+            // Prevent default anchor behavior
+            e.preventDefault();
+
+            seasonBtn.forEach(function(b){
+                b.classList.remove("active")
             })
             this.classList.add("active")
+
+    // Show/Hide sections logic with smooth transition
+            const changeSeason = (show, hide) => {
+                hide.style.opacity = '0';
+                hide.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    hide.style.display = "none";
+                    show.style.display = "grid";
+                    setTimeout(() => {
+                        show.style.opacity = '1';
+                        show.style.transform = 'translateY(0)';
+                    }, 50);
+                }, 400);
+            };
+
+            if(this.id === "summerBtn") {
+                changeSeason(summerSection, winterSection);
+            } else {
+                changeSeason(winterSection, summerSection);
+            }
         })
     })
+
+    // Setup initial visibility for transition
+    summerSection.classList.add('section-transition');
+    winterSection.classList.add('section-transition');
+
+    // Auto-detect current season based on month
+    const currentMonth = new Date().getMonth();
+    const isSummerTime = currentMonth >= 3 && currentMonth <= 8;
+
+    if (isSummerTime) {
+        summerSection.style.display = "grid";
+        summerSection.style.opacity = "1";
+        winterSection.style.display = "none";
+        document.getElementById("summerBtn").classList.add("active");
+    } else {
+        summerSection.style.display = "none";
+        winterSection.style.display = "grid";
+        winterSection.style.opacity = "1";
+        document.getElementById("winterBtn").classList.add("active");
+    }
     // end season logic 
     // start load page effect  
     const content = document.querySelector(".products");

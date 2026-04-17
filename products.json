@@ -39,7 +39,7 @@
         "id" : 3,
         "in_stock" : false,
         "limited" : false,
-        "season" : "winter",
+        "season" : "summer",
         "image":"design/basicShirt.png",
         "icon":"design/ammCard.png",
         "title" : "Basic T-Shirt",

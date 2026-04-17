@@ -28,9 +28,8 @@ function submitData() {
         btn.style.opacity = "0.7";
         
         setTimeout(() => {
-            alert("confirmed ✓");
-            btn.innerText = "Confirm ✓";
-            btn.style.opacity = "1";
+            localStorage.removeItem('cart');
+            window.location.href = '../thank-you.html';
         }, 1500);
     }
 }

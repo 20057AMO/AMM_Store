@@ -1,20 +1,41 @@
-let cart = document.getElementById("cart");
-let navBar = document.getElementById("navBar");
+// Inject Preloader HTML
+const loaderHTML = `
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">AMM</div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+`;
+document.body.insertAdjacentHTML('afterbegin', loaderHTML);
 
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 800);
+    }
+});
+
+// Path Detection for subdirectories
+const isSubDir = window.location.pathname.includes('/Card/');
+const basePath = isSubDir ? '../' : '';
 
 // Start NavBar Logic
 navBar.innerHTML = `
     <div class="logo">
-    <a href="index.html"><img src="design/logo.png" alt="logo"></a> 
+    <a href="${basePath}index.html"><img src="${basePath}design/logo.png" alt="logo"></a> 
     </div>
     <div class="links">
     <ul>
-    <li><a href="itm.html"><i class="fa-solid fa-shirt"></i></a></li>
+    <li><a href="${basePath}itm.html"><i class="fa-solid fa-shirt"></i></a></li>
     <li class="cart-icon">
-    <div id="openCloseCart"><i class="fa-solid fa-bag-shopping"></i></div>
+    <div class="openCloseCart"><i class="fa-solid fa-bag-shopping"></i></div>
     <span class="count">0</span>
     </li>
-    <li><a href="login.html"><i class="fa-solid fa-circle-user"></i></a></li>
+    <li><a href="${basePath}login.html"><i class="fa-solid fa-circle-user"></i></a></li>
     </ul>
     </div>
 `
@@ -25,7 +46,7 @@ navBar.innerHTML = `
 cart.innerHTML = `
         <div class="top_cart">
             <h3>Your Items : <span class="Count_item_cart">0</span></h3>
-            <span class="close_cart" id="openCloseCart"><i class="fa-regular fa-circle-xmark"></i></span>
+            <span class="close_cart openCloseCart"><i class="fa-regular fa-circle-xmark"></i></span>
         </div>
         <div class="items_of_cart" id="cart_items">
             
@@ -37,12 +58,12 @@ cart.innerHTML = `
             </div>
             <div class="button_cart">
                 <button  class="btn_cart btn checkout open-popup" data-popup="checkout">Checkout</button>
-                <span  class="btn_cart btn trans_bg" id="openCloseCart" >Shop More</span>
+                <span  class="btn_cart btn trans_bg openCloseCart" >Shop More</span>
             </div>
         </div>
     `
     
-let cartOpenBtn = document.querySelectorAll("#openCloseCart")
+let cartOpenBtn = document.querySelectorAll(".openCloseCart")
 cartOpenBtn.forEach((btn)=>{
     btn.addEventListener("click",  ()=>{
         cart.classList.toggle("active")
@@ -58,36 +79,34 @@ checkoutPopup.innerHTML = `
                 <p>ABSOLUTE MODERN MASTERY</p>
             </div>
     
-            <form class="luxury-form">
+            <form class="luxury-form" id="checkout-form">
                 <div class="form-group">
                     <label>FULL NAME</label>
-                    <input type="text" placeholder="Enter your name" required autofocus>
+                    <input type="text" id="cust-name" placeholder="Enter your name" required autofocus>
                 </div>
     
                 <div class="form-row">
                     <div class="form-group">
                         <label>PHONE NUMBER</label>
-                        <input type="tel" placeholder="01xxxxxxxxx" required>
+                        <input type="tel" id="cust-phone" placeholder="01xxxxxxxxx" required>
                     </div>
                     <div class="form-group">
                         <label>EMAIL</label>
-                        <input type="email" placeholder="example@email.com" required>
+                        <input type="email" id="cust-email" placeholder="example@email.com" required>
                     </div>
                 </div>
     
                 <div class="form-group">
                     <label>ADDRESS</label>
-                    <textarea rows="3" placeholder="Your address" required></textarea>
+                    <textarea id="cust-address" rows="3" placeholder="Your address" required></textarea>
                 </div>
     
                 <div class="form-footer">
-                    <p class="price-summary" id="totalAmount"></p>
+                    <div class="price-summary" id="totalAmount"></div>
     
                     <div class="btn-group">
-                        <a href="Card/Card.html">
-                            <button type="button" class="buy-button">Proceed to Payment</button>
-                        </a>
-                        <button type="button" class="cancel-button  cancel-btn" data-popup="checkout">Cancel</button>
+                        <button type="submit" class="buy-button">Proceed to Payment</button>
+                        <button type="button" class="cancel-button cancel-btn" data-popup="checkout">Cancel</button>
                     </div>
                 </div>
             </form>
