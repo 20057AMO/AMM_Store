@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury Interactive Card</title>
-        <link rel="Icon" href="../design/logo.png">
+    <link rel="Icon" href="../design/logo.png">
     <link rel="stylesheet" href="f.css">
 </head>
+
 <body>
-<div class="card-container">
-    <div class="card" id="card">
-        <div class="card-front">
-            <div class="card-header">
-                <div class="logo">VISA</div>
-                <div class="chip"></div>
+    <div class="card-container">
+        <div class="card" id="card">
+            <div class="card-front">
+                <div class="card-header">
+                    <div class="logo">VISA</div>
+                    <div class="chip"></div>
+                </div>
+
+                <div class="input-field">
+                    <label>Card Number</label>
+                    <input type="text" id="card-num" placeholder="**** **** **** ****" maxlength="19"
+                        inputmode="numeric">
+                </div>
+
+                <div class="bottom-row">
+                    <div class="input-field">
+                        <label>Cardholder Name</label>
+                        <input type="text" id="card-name" placeholder="FULL NAME">
+                    </div>
+                    <div class="input-field">
+                        <label>Expiration Date</label>
+                        <input type="text" id="card-date" placeholder="MM/YY" maxlength="5" inputmode="numeric">
+                    </div>
+                </div>
+
+                <button class="flip-btn" onclick="flipCard()">Show Back</button>
             </div>
-            
-            <div class="input-field">
-                <label>Card Number</label>
-                <input type="text" id="card-num" placeholder="**** **** **** ****" maxlength="19">
+            <div class="card-back">
+                <div class="black-strip"></div>
+                <div class="cvv-section">
+                    <label>CVV Code</label>
+                    <input type="text" id="card-cvv" placeholder="***" maxlength="3" inputmode="numeric">
+                </div>
+                <div class="button-group">
+                    <button class="flip-btn secondary" onclick="flipCard()">Back to Front ↺</button>
+                    <button class="confirm-btn" onclick="submitData()">Confirm Data ✓</button>
+                </div>
             </div>
 
-            <div class="bottom-row">
-                <div class="input-field">
-                    <label>Cardholder Name</label>
-                    <input type="text" id="card-name" placeholder="FULL NAME">
-                </div>
-                <div class="input-field">
-                    <label>Expiration Date</label>
-                    <input type="text" id="card-date" placeholder="MM/YY" maxlength="5">
-                </div>
-            </div>
-            
-            <button class="flip-btn" onclick="flipCard()">Show Back</button>
-            </div>
-    <div class="card-back">
-        <div class="black-strip"></div>
-        <div class="cvv-section">
-        <label>CVV Code</label>
-        <input type="text" id="card-cvv" placeholder="***" maxlength="3">
-        </div>
-        <div class="button-group">
-        <button class="flip-btn secondary" onclick="flipCard()">Back to Front ↺</button>
-        <button class="confirm-btn" onclick="submitData()">Confirm Data ✓</button>
-    </div>
-</div>
-
-<script src="f.js"></script>
-<script src="../js/main.js"></script>
+            <script src="f.js"></script>
+            <script src="../js/main.js"></script>
 </body>
+
 </html>
