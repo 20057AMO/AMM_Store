@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
@@ -15,11 +17,12 @@
     <link rel="Icon" href="design/logo.png">
     <title>AMM Store - Luxury Login</title>
 </head>
+
 <body class="login-page">
     <!-- Start Cart  -->
     <div class="cart" id="cart"></div>
     <!-- End Cart  -->
-    
+
     <!-- start checkout popup  -->
     <div class="popup" id="checkout"></div>
     <!-- end checkout popup  -->
@@ -48,7 +51,8 @@
             </div>
 
             <div class="form-options">
-                <label style="color: var(--text-muted); font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <label
+                    style="color: var(--text-muted); font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 8px;">
                     <input type="checkbox" style="accent-color: var(--gold-primary);"> Remember Me
                 </label>
                 <a href="#" class="forgot-link">Forgot Password?</a>
@@ -60,17 +64,17 @@
                 Don't have an account? <span id="toggle-register">Create One</span>
             </div>
         </form>
-    </div> 
+    </div>
 
     <script src="js/main.js"></script>
     <script src="js/logic.js"></script>
     <script>
         // Simple toggle effect for demo
-        document.getElementById('toggle-register').addEventListener('click', function() {
+        document.getElementById('toggle-register').addEventListener('click', function () {
             const h1 = document.querySelector('.login-header h1');
             const btn = document.querySelector('.btn-luxury');
             const prompt = document.querySelector('.register-prompt');
-            
+
             if (h1.innerText === "Login") {
                 h1.innerText = "Register";
                 btn.innerText = "Join AMM";
@@ -82,7 +86,8 @@
             }
             // Re-add listener if innerHTML was reset
             document.getElementById('toggle-register').addEventListener('click', arguments.callee);
-        }, {once: true});
+        }, { once: true });
     </script>
 </body>
+
 </html>

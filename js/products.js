@@ -39,11 +39,22 @@
     summerSection.classList.add('section-transition');
     winterSection.classList.add('section-transition');
 
-    // Auto-detect current season based on month
+    // Auto-detect current season based on URL parameter or month
+    const urlParams = new URLSearchParams(window.location.search);
+    const collectionParam = urlParams.get('collection');
     const currentMonth = new Date().getMonth();
-    const isSummerTime = currentMonth >= 3 && currentMonth <= 8;
+    
+    let isSummer;
+    if (collectionParam === 'summer') {
+        isSummer = true;
+    } else if (collectionParam === 'winter') {
+        isSummer = false;
+    } else {
+        // logic of months the current month is summer  or winter 
+        isSummer = currentMonth >= 3 && currentMonth <= 8;
+    }
 
-    if (isSummerTime) {
+    if (isSummer) {
         summerSection.style.display = "grid";
         summerSection.style.opacity = "1";
         winterSection.style.display = "none";
@@ -71,11 +82,8 @@
             .then(response => response.json())
             .then(data => {
                 const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                const  currentSeason = new Date().getMonth() < 6 ? 'Summer' : 'Winter';
                 const summerSection = document.getElementById("summerSection");
                 const winterSection = document.getElementById("winterSection");
-                const winterBtn = document.getElementById("winterBtn");
-                const summerBtn = document.getElementById("summerBtn");
                 let statusQuo = ""
                 let stock = ""
 
