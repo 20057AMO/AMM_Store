@@ -834,7 +834,7 @@ li.cart-icon {
     }
     .collection-btn{
     background: var(--gold-gradient);
-    color: #000;
+    color: var(--bg-primary);
     border: 1px solid var(--gold-primary);
     }
 }
